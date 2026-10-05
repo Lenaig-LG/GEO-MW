@@ -21,8 +21,8 @@ We would like to thank the authors of UrbanTALES for generously sharing their 3D
 
 ## Features {#features}
 
--   Reading NetCDF files, including metadata handling.
 -   Georeferencing of UrbanTALES wind and topography data (from no coordinate system in UrbanTALES data to the local UTM of the scenario).
+-   Reading NetCDF files, including metadata handling.
 -   Construction and manipulation of grids (initial grid, geographic grid, wind grid, final grid).
 -   Processing of topographic rasters containing building heights.
 -   Building extraction and geographical indicator computation using Groovy scripts (GeoClimate).

@@ -375,3 +375,73 @@ def open_final_gdf(filename: str, georef_output: str, res_cell: int = 50):
     path_final = os.path.join(georef_output, filename, f"final_{res_cell}m.geojson")
     gdf = gpd.read_file(path_final)
     return gdf
+
+
+# ------
+# ------
+
+
+def retrieve_gdal_file(filename: str, georef_input: str, path_work: str):
+    """
+    Retrieve the gdal_command.txt file in data from the filename, copy file and paste it in git repository.
+
+    Parameters
+    ----------
+    filename : str
+        The name of the work zone (scenario) (exemple: "FR-Par-V2_d15").
+    georef_input : str
+        The path to georeference pipeline inputs.
+    path_work : str
+        The path to root of git/work repository.
+
+    Returns
+    -------
+    None
+    """
+
+    print("---------------------------------------------")
+    print(filename)
+    path_gdal = os.path.join(georef_input, filename, "gdal_command.txt")
+    path_gdal_versionned = os.path.join(
+        path_work, "data", "gdal_commands", filename, "gdal_command.txt"
+    )
+    os.makedirs(path_gdal_versionned, exist_ok=True)
+    if os.path.isfile(path_gdal):
+        print(f"File 'gdal_command.txt exists at {path_gdal}.")
+        print("Moving the gdal command in versionned data...")
+        shutil.copy2(path_gdal, path_gdal_versionned)
+        found = True
+        print("Done.")
+        print("---------------------------------------------")
+    else:
+        raise FileNotFoundError("No gdal_command retrived here:", path_gdal)
+
+
+# ------
+# ------
+
+
+def collect_all_gdal(filenames_list: list, georef_input: str, path_work: str):
+    """
+    Collect all gdal_command.txt files stored in non versionned data to move them into versionned data folder.
+
+    Parameters
+    ----------
+    filename : list
+        List of work zones (scenarios).
+    georef_input : str
+        The path to georeference pipeline inputs.
+    path_work : str
+        The path to root of git/work repository.
+
+    Returns
+    -------
+    None
+    """
+
+    for filename in filenames_list:
+        retrieve_gdal_file(filename, georef_input, path_work)
+
+
+# ------
+# ------
