@@ -122,7 +122,7 @@ Always run from the repository root, with the virtual environment activated. - `
 **Python script:**
 
 ``` bash
-python pipeline_process.py
+python main.py
 ```
 
 **Notebook:**
