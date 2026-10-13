@@ -128,7 +128,7 @@ for filename in scenario_list:
             filename_e=filename,
             georef_input=GEOREF_INPUT,
             georef_output=GEOREF_OUTPUT,
-            path_data=PATH_3D,
+            path_data=DATA_DIR,
             m=m,
         )
 

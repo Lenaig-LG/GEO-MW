@@ -79,7 +79,7 @@ def prepare_tmp(
     georef_input,
     groovy_path,
     path_data,
-    tmp_path="/tmp/lenaig",
+    tmp_path=tempfile.tempdir,
 ):
     """
     Prepare tmp folder to georeference function.
@@ -96,7 +96,7 @@ def prepare_tmp(
         The path to the WindDataGDALCommands.groovy script.
     path_data : str
         General path to data.
-    tmp_path : str, "/tmp/lenaig" by default
+    tmp_path : str, tempfile.tempdir by default
         Path to local temporary folder.
 
     Returns
@@ -141,6 +141,8 @@ def prepare_tmp(
 # ------
 # ------
 
+import tempfile
+
 
 def georeferencement(
     filename_e: str,
@@ -149,7 +151,7 @@ def georeferencement(
     georef_output: str,
     path_data: str,
     groovy_path: str,
-    path_to_files: str = "/tmp/lenaig",
+    path_to_files: str = tempfile.tempdir,
 ):
     """
     Execute georeferencement groovy script from python_code.
@@ -185,7 +187,7 @@ def georeferencement(
     result = subprocess.run(
         [
             "groovy",
-            "/tmp/lenaig/WindDataGDALCommands.groovy",
+            os.path.join(path_to_files, "WindDataGDALCommands.groovy"),
             path_to_files,
         ],
         capture_output=True,  # pour récupérer stdout/stderr
@@ -197,11 +199,14 @@ def georeferencement(
     print("Output code :", result.returncode)
 
     # Execute process_wind_data (= Groovy output)
-    subprocess.run(["bash", "/tmp/lenaig/process_wind_data.txt"], check=True)
+    subprocess.run(
+        ["bash", os.path.join(path_to_files, "process_wind_data.txt")], check=True
+    )
 
     # --- Move georef files into correct folder ---
 
-    source_folder = "/tmp/lenaig/results/"
+    source_folder = os.path.join(path_to_files, "results/")
+    os.makedirs(source_folder, exist_ok=True)
     destination_folder = out_dir
     os.makedirs(destination_folder, exist_ok=True)
 
