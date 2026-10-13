@@ -10,6 +10,7 @@ import os
 import shutil
 import subprocess
 from typing import Optional, List, Tuple, Dict, Any
+import tempfile
 
 ########################################################################
 
@@ -141,8 +142,6 @@ def prepare_tmp(
 # ------
 # ------
 
-import tempfile
-
 
 def georeferencement(
     filename_e: str,
@@ -168,9 +167,9 @@ def georeferencement(
         The path to folder where georeferenced files will be stored.
     path_data : str
         General path to data.
-    groovy_path : str, /tmp/lenaig/WindDataGDALCommands.groovy by default
+    groovy_path : str, tempfile.tempdir/WindDataGDALCommands.groovy by default
         Where is located the groovy script when execution of the georef task.
-    path_to_files : str, /tmp/lenaig by default
+    path_to_files : str, tempfile.tempdir by default
 
     Returns
     -------

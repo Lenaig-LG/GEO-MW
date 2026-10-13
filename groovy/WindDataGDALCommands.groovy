@@ -9,7 +9,7 @@
 
 if(!args){
     println("Please set a folder thar contains the GDAL commands from QGIS georeferencing tool, named gdal_command.txt\n" +
-            "Example :  /tmp/lenaig_data")
+            "Example :  tempfile.tempdir")
     return
 }
 

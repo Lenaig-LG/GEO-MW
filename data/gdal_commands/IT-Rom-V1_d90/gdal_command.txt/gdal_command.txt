@@ -1,0 +1,3 @@
+gdal_translate -of GTiff -gcp 224.167 87.063 980955.928 5056495.748 -gcp 203.992 329.002 980804.062 5056303.199 -gcp 25.935 357.008 980916.957 5056162.317 -gcp 80.874 17.056 981108.271 5056451.32 -gcp 143.931 222.829 980922.254 5056341.908 "/home/llegrogn/Documents/These_Lenaig_perso/Lenaig_Le_Grognec/4.Coding/Projet_git/Data/GeoReference/Georef_input/IT-Rom-V1_d90/wind_layer_0.25.tif" "/tmp/wind_layer_0.25.tif"
+gdalwarp -r near -order 1 -co COMPRESS=None  -t_srs EPSG:32631 "/tmp/wind_layer_0.25.tif" "/home/llegrogn/Documents/These_Lenaig_perso/Lenaig_Le_Grognec/4.Coding/Projet_git/Data/GeoReference/Georef_output/IT-Rom-V1_d90/wind_layer_0.25_georef.tif"
+
