@@ -1,4 +1,4 @@
-# georef-UrbanTALES
+# GEO-MW : Open GEOspatial workflow to link urban Morphology variables and UrbanTALES Wind data
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
@@ -79,7 +79,7 @@ Projects/
 │       ├── Georef_input/      # inputs for georeferencing (place here the content of data/gdal_commands)
 │       └── Georef_output/     # outputs for georeferencing (where the ouptut of this workflow are stored)
 ├── Outputs/                   # outputs (created automatically but not used)
-└── georef-UrbanTALES/         # this repository
+└── GEO_MW/                    # this repository
 ```
 
 Paths are defined in a single place: `scripts/config.py`.
@@ -175,7 +175,7 @@ Copyright (C) 2026 Lenaig Le Grognec
 
 We would like to thank the authors of UrbanTALES for generously sharing their 3D airflow data with us.
 
-## Author {#author}
+## Authors {#author}
 
 -   Lenaig Le Grognec ([\@Lenaig-LG](https://github.com/Lenaig-LG)), Lab-STICC, Université de Bretagne Sud
 -   Baptiste Alglave, Lab-STICC, Université de Bretagne Sud
