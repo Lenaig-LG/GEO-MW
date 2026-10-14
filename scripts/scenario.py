@@ -120,20 +120,24 @@ UA = [
     "UA-Kyi-V15_d00",
 ]
 
-scenario_list = [
-    *AR,
-    *BR,
-    *CH,
-    *CM,
-    *CN,
-    *ES,
-    *FR,
-    *IT,
-    *JP,
-    *KO,
-    *NL,
-    *RU,
-    *SG,
-    *TA,
-    *UA,
-]
+# # All scenarios from 42 domains
+# scenario_list = [
+#     *AR,
+#     *BR,
+#     *CH,
+#     *CM,
+#     *CN,
+#     *ES,
+#     *FR,
+#     *IT,
+#     *JP,
+#     *KO,
+#     *NL,
+#     *RU,
+#     *SG,
+#     *TA,
+#     *UA,
+# ]
+
+# Two scenarios from France
+scenario_list = ["FR-Hau-V1_d00", "FR-Par-V2_d00"]

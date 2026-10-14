@@ -7,4 +7,4 @@ The portal states that uploaded data are distributed under the Creative Commons
 Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0). Users must
 cite the original UrbanTALES paper and comply with the portal's current terms.
 
-The LGPL license in `LICENSE.LESSER` applies only to this repository's original workflow. It does not relicense UrbanTALES data.
+The LGPL license in `LICENSE` applies only to this repository's original workflow. It does not relicense UrbanTALES data.
