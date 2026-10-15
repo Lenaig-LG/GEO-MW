@@ -3,7 +3,7 @@
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
  
 This repository is associated with a research paper currently in preparation, which investigates the relationship between urban morphology and wind speed. The workflow processes geospatial data retrieved from UrbanTALES (Nazarian et al., 2025) and provides them with a spatial anchorage, a step referred to as georeferencing. Aeraulic and morphological variables are then computed on a 50 × 50 m regular grid with a horizontal resolution of 0.5 m (ranging from 0.25 m to 49.75 m). The full workflow is runnable from a Python script (`main.py`) or a notebook (`pipeline_process.ipynb`).
- 
+
 The data processing workflow involves converting 3D wind data stored in NetCDF files (`.nc` files) into raster layers, which are then georeferenced using manually collected ground control points.
 
 ## Table of contents
@@ -143,7 +143,7 @@ The first cell of the notebook detects the repository root and sets up imports a
 ## Repository structure
 
 ```         
-georef-UrbanTALES/
+GEO_MW/
 ├── scripts/                     
 │   ├── config.py                # Project paths (configurable)
 │   ├── final_grid.py            # Final grid
@@ -181,6 +181,6 @@ We would like to thank the authors of UrbanTALES for generously sharing their 3D
 
 ## Authors 
 
--   Lenaig Le Grognec ([\@Lenaig-LG](https://github.com/Lenaig-LG)), Lab-STICC, Université de Bretagne Sud
--   Baptiste Alglave, Lab-STICC, Université de Bretagne Sud
--   Erwan Bocher, CNRS, Lab-STICC
+- Lenaig Le Grognec ([@Lenaig-LG](https://github.com/Lenaig-LG)), Lab-STICC, Université de Bretagne Sud
+- Baptiste Alglave, Lab-STICC, Université de Bretagne Sud
+- Erwan Bocher, CNRS, Lab-STICC
