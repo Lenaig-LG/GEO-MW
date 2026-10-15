@@ -1,27 +1,27 @@
 # GEO-MW : Open GEOspatial workflow to link urban Morphology variables and UrbanTALES Wind data
-
+ 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-
+ 
 This repository is associated with a research paper currently in preparation, which investigates the relationship between urban morphology and wind speed. The workflow processes geospatial data retrieved from UrbanTALES (Nazarian et al., 2025) and provides them with a spatial anchorage, a step referred to as georeferencing. Aeraulic and morphological variables are then computed on a 50 × 50 m regular grid with a horizontal resolution of 0.5 m (ranging from 0.25 m to 49.75 m). The full workflow is runnable from a Python script (`main.py`) or a notebook (`pipeline_process.ipynb`).
-
+ 
 The data processing workflow involves converting 3D wind data stored in NetCDF files (`.nc` files) into raster layers, which are then georeferenced using manually collected ground control points.
 
 ## Table of contents
+ 
+- [Data](#data)
+- [Main goals of the repository](#main-goals-of-the-repository)
+- [Installation](#installation)
+  - [Requirements](#requirements)
+  - [Downloading the data](#downloading-the-data)
+  - [Folder layout and path configuration](#folder-layout-and-path-configuration)
+  - [Cloning the repository and installing the dependencies](#cloning-the-repository-and-installing-the-dependencies)
+- [Usage](#usage)
+- [Repository structure](#repository-structure)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+- [Authors](#authors)
 
--   [Data](#data)
--   [Main goals of the repository](#main-goals-of-the-repository)
--   [Installation](#installation)
-    -   [Requirements](#requirements)
-    -   [Downloading the data](#downloading-the-data)
-    -   [Folder layout and path configuration](#folder-layout-and-path-configuration)
-    -   [Cloning the repository and installing the dependencies](#cloning-the-repository-and-installing-the-dependencies)
--   [Usage](#usage)
--   [Repository structure](#repository-structure)
--   [License](#license)
--   [Acknowledgments](#acknowledgments)
--   [Authors](#authors)
-
-## Data {#data}
+## Data 
 
 This workflow relies on two data sources: the UrbanTALES dataset and the OpenStreetMap (OSM) database.
 
@@ -29,7 +29,7 @@ UrbanTALES (Nazarian et al., 2025) is a freely available dataset of large-eddy s
 
 OpenStreetMap (OSM; Coast, 2004) is a crowdsourced geospatial database of volunteered geographic information.
 
-## Main goals of the repository {#main-goals-of-the-repository}
+## Main goals of the repository 
 
 This repository provides code to:
 
@@ -38,15 +38,18 @@ This repository provides code to:
 -   compute aeraulic variables from the georeferenced UrbanTALES data;
 -   compute morphological variables from OSM using GeoClimate (Bocher et al., 2021).
 
-## Installation {#installation}
 
-### Requirements {#requirements}
+## Installation
+ 
+### Requirements
+ 
+
 
 -   Python $\geq$ 3.10 (developed with Python 3.12)
 -   Java ≥ 8 (GeoClimate relies on Java, so a reasonably recent Java installation is required on your computer)
 -   Groovy \>= 4.0.29
 
-### Download data
+### Downloading the data
 
 The UrbanTALES data are available at <https://urbantales.vercel.app/> (select "realistic cases"). The following files are required:
 
@@ -62,25 +65,26 @@ Place the UrbanTALES data in the folders described in the next section. Then dow
 
 The folder `0_expl_tmp` provides an example of the temporary files generated during the georeferencing process.
 
-## Folder layout and path configuration {#folder-layout-and-path-configuration}
+### Folder layout and path configuration
 
 The data are stored outside the repository, with the following layout:
 
-```         
-Projects/
-├── Data/                      # data (outside the repository)
-│   ├── UrbanTALES/        
-│       ├── 3Dwind/            # 3D wind data (NetCDF)
-│       ├── png/               # png files downloaded from UrbanTALES
-│       ├── topo/              # topo files downloaded from UrbanTALES
-│       ├── metadata.csv       # metadata file given in the repository
-│   ├── Extracting_buildings/  # the georeferenced topo rasters (files are created during processing)
-│   └── GeoReference/
-│       ├── Georef_input/      # inputs for georeferencing (place here the content of data/gdal_commands)
-│       └── Georef_output/     # outputs for georeferencing (where the ouptut of this workflow are stored)
-├── Outputs/                   # outputs (created automatically but not used)
-└── GEO_MW/                    # this repository
 ```
+Projects/
+├── Data/                          # data (outside the repository)
+│   ├── UrbanTALES/
+│   │   ├── 3Dwind/                # 3D wind data (NetCDF)
+│   │   ├── png/                   # png files downloaded from UrbanTALES
+│   │   ├── topo/                  # topo files downloaded from UrbanTALES
+│   │   └── metadata.csv           # metadata file given in the repository
+│   ├── Extracting_buildings/      # the georeferenced topo rasters (files are created during processing)
+│   └── GeoReference/
+│       ├── Georef_input/          # inputs for georeferencing (place here the content of data/gdal_commands)
+│       └── Georef_output/         # outputs for georeferencing (where the outputs of this workflow are stored)
+├── Outputs/                       # outputs (created automatically but not used)
+└── GEO_MW/                        # this repository
+```
+
 
 Paths are defined in a single place: `scripts/config.py`.
 
@@ -104,7 +108,7 @@ from scripts.config import DATA_DIR, OUTPUT_DIR, PATH_3D, GEOREF_INPUT, GEOREF_O
 check_paths()   # checks that Data exists, with an explicit error message otherwise
 ```
 
-## Cloning the repository and installing the dependencies {#cloning-the-repository-and-installing-the-dependencies}
+### Cloning the repository and installing the dependencies
 
 ``` bash
 git clone git@github.com:Lenaig-LG/georef-UrbanTALES.git
@@ -115,7 +119,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage {#usage}
+## Usage
 
 Always run from the repository root, with the virtual environment activated.
 
@@ -136,7 +140,7 @@ jupyter notebook pipeline_process.ipynb
 
 The first cell of the notebook detects the repository root and sets up imports and paths.
 
-## Repository structure {#repository-structure}
+## Repository structure
 
 ```         
 georef-UrbanTALES/
@@ -163,7 +167,7 @@ georef-UrbanTALES/
 └── README.md
 ```
 
-## License {#license}
+## License 
 
 This project is distributed under the **GNU Lesser General Public License v3.0 or later** (`LGPL-3.0-or-later`).
 
@@ -171,11 +175,11 @@ The full text can be found in the [`LICENCE`](LICENCE) file (LGPL-3.0).
 
 Copyright (C) 2026 Lenaig Le Grognec
 
-## Acknowledgments {#acknowledgments}
+## Acknowledgments 
 
 We would like to thank the authors of UrbanTALES for generously sharing their 3D airflow data with us.
 
-## Authors {#author}
+## Authors 
 
 -   Lenaig Le Grognec ([\@Lenaig-LG](https://github.com/Lenaig-LG)), Lab-STICC, Université de Bretagne Sud
 -   Baptiste Alglave, Lab-STICC, Université de Bretagne Sud
