@@ -91,7 +91,7 @@ class GeoGrid:
         out_dir = os.path.join(self.grid.georef_output, self.grid.filename_e)
 
         # Groovy script path
-        # groovy_path = os.path.join(path_git, "urban_wind_predict", "Groovy", "extractBuilding.groovy")
+        # groovy_path = os.path.join(path_git, "urban_wind_predict", "groovy", "extractBuilding.groovy")
 
         # Execute Groovy script
         result = subprocess.run(
@@ -322,7 +322,7 @@ class GeoGrid:
         # groovy_path_geo = os.path.join(
         #     self.wind_import.path_git,
         #     "urban_wind_predict",
-        #     "Groovy",
+        #     "groovy",
         #     "geoClimateIndicators.groovy",
         # )
 

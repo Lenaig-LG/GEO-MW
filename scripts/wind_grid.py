@@ -704,7 +704,7 @@ class WindGrid:
         """
 
         z_values = pd.read_csv(
-            os.path.join(self.grid.path_data, "Copie_UrbanTALES", "z_values.csv")
+            os.path.join(self.grid.path_data, "UrbanTALES", "z_values.csv")
         )
         gdf_all_wind = []
 
