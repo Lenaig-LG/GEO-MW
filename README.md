@@ -111,7 +111,7 @@ check_paths()   # checks that Data exists, with an explicit error message otherw
 ### Cloning the repository and installing the dependencies
 
 ``` bash
-git clone git@github.com:Lenaig-LG/georef-UrbanTALES.git
+git clone git@github.com:Lenaig-LG/GEO-MW.git
 cd georef-UrbanTALES
  
 python3 -m venv venv
