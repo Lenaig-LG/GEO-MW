@@ -46,7 +46,7 @@ This repository provides code to:
 
 
 -   Python $\geq$ 3.10 (developed with Python 3.12)
--   Java ≥ 8 (GeoClimate relies on Java, so a reasonably recent Java installation is required on your computer)
+-   Java ≥ 11 (GeoClimate relies on Java, so a reasonably recent Java installation is required on your computer)
 -   Groovy \>= 4.0.29
 
 ### Downloading the data
