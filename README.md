@@ -173,7 +173,7 @@ This project is distributed under the **GNU Lesser General Public License v3.0 o
 
 The full text can be found in the [`LICENCE`](LICENCE) file (LGPL-3.0).
 
-Copyright (C) 2026 Lenaig Le Grognec
+Copyright (C) 2026 Lenaig Le Grognec, Lab-STICC Universite Bretagne Sud
 
 ## Acknowledgments 
 
